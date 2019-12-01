@@ -1,0 +1,49 @@
+{
+  "name": "micro-app",
+  "version": "1.1.0",
+  "description": "An completed implementation of Micro Frontends",
+  "main": "./dist/index.js",
+  "sideEffects": false,
+  "scripts": {
+    "start": "serve -s -l 5000",
+    "install:examples": "npm run build && cd examples/main && npm i && cd ../react16 && npm i && cd ../react15 && npm i && cd ../vue && npm i",
+    "start:main": "cd examples/main && npm start",
+    "start:react16": "cd examples/react16 && npm start",
+    "start:react15": "cd examples/react15 && npm start",
+    "start:vue": "cd examples/vue && npm start",
+    "build": "father-build",
+    "prepush": "npm run lint",
+    "release": "np --no-cleanup --yolo --no-publish",
+    "prepublishOnly": "npm run lint && npm run build",
+    "lint": "tslint 'src/**/*.ts'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuitos/qiankun.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "Kuitos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kuitos/qiankun/issues"
+  },
+  "homepage": "https://github.com/kuitos/qiankun#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "import-html-entry": "^1.0.0",
+    "lodash": "^4.17.11",
+    "single-spa": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.129",
+    "babel-plugin-import": "^1.12.1",
+    "husky": "^2.3.0",
+    "np": "^5.0.3",
+    "rimraf": "^3.0.0",
+    "serve": "^11.1.0",
+    "tslint": "^5.16.0"
+  }
+}
